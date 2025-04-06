@@ -1,0 +1,138 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <form id="loginForm">
+        <section class="container">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required><br><br>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required><br><br>
+          <input type="submit" value="Login">
+        </section>
+      </form>
+      
+      <script>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+          e.preventDefault(); // prevent default form submit
+      
+          const username = document.getElementById("username").value;
+      
+          // Save user data in localStorage
+          localStorage.setItem("user", JSON.stringify({ name: username }));
+      
+          // Redirect to music player
+          window.location.href = "index.html";
+        });
+        
+      </script>
+      
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+   
+   h2 {
+            text-align: center;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 25px;
+        }
+        body{
+            font-family: consolas;
+        }
+  </style>
+</head>
+<body>
+  <h2>Login Page</h2>
+  <form id="loginForm">
+    <section class="container">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <input type="submit" value="Login">
+      <p id="error" style="color: red;"></p>
+    </section>
+  </form>
+
+  <script>
+    // Step 1: Predefined registered users (like a database)
+    const registeredUsers = [
+      { username: "kalidasan", password: "kd"},
+      { username: "adarsh", password: "ad" },
+      { username: "nishant", password: "ns" },
+      { username: "aravind", password: "ar"},
+    ];
+
+    // Step 2: Login form handling
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Step 3: Check against registered users
+      const foundUser = registeredUsers.find(user => 
+        user.username === username && user.password === password
+      );
+
+      if (foundUser) {
+        // Valid login
+        localStorage.setItem("user", JSON.stringify(foundUser));
+        localStorage.setItem("user1", JSON.stringify({ name: username }));
+        window.location.href = "index.html"; // Redirect to main page
+      } else {
+        // Invalid login
+        document.getElementById("error").textContent = "Invalid username or password.";
+      }
+    });
+  </script>
+</body>
+</html>
