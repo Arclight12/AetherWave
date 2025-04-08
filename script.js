@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const clientId = 'e04e9b41acea45eca546d8852b27f9c9';
-    const clientSecret = 'c7a16422ec934363b65fe4f607a2569b';
+    //enter your clientid here
+    //enter your  client secret here
     let accessToken = '';
 
     const menuOpen = document.getElementById('menu-open');
