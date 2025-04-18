@@ -3,102 +3,173 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <style>
-   
-   h2 {
-            text-align: center;
-        }
-        form {
-            width: 50%;
-            margin: 0 auto;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-        .container {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 20px;
-            border-radius: 25px;
-        }
-        body{
-            font-family: consolas;
-        } 
-        
+  <style> 
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    body {
+      font-family: Consolas, monospace;
+      margin: 0;
+      padding: 0;
+      background-color: #1e1e1e;
+    }
 
+    .main-container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left-section {
+      flex: 1;
+      background: linear-gradient(to right, #43cea2, #185a9d); 
+     /* background: linear-gradient(135deg,#43cea2, #185a9d); */
+     
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; 
+      color: white;
+      padding: 2rem;
+    }
+    
+
+.left-section h1 {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  font-family: 'Great Vibes', cursive;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+   color: #ffffff; 
+ 
+  
+}
+
+.left-section p {
+  font-size: 1.4rem;
+  text-align: center;
+  max-width: 300px;
+  font-family: Consolas, monospace;
+  color: #e0e0e0;
+  opacity: 0.95;
+  
+}
+
+    /**.left-section h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;  
+      font-family: consolas;
+    }
+
+    .left-section p {
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 300px;
+      font-family: consolas;
+    } **/
+    .right-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+    }
+
+    form {
+      width: 80%;
+      max-width: 400px;
+      padding: 30px;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #43ccce;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #43ccce;
+    }
+
+    #error {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  
- <section class="container1"> 
 
-  <form id="loginForm">
-    <section class="container">
+<div class="main-container">
+  <div class="left-section">
+    <h1>AetherWave</h1>
+    <p>Let the rhythm of your soul echo through every beat.</p>
+  </div>
+
+  <div class="right-section">
+    <form id="loginForm">
+      <h2 style="text-align:center;">Login</h2>
       <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required><br><br>
+      <input type="text" id="username" name="username" required>
+
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required><br><br>
+      <input type="password" id="password" name="password" required>
+
       <input type="submit" value="Login">
-      <p id="error" style="color: red;"></p>
-    </section>
-  </form>
-  </section> 
-  
 
-  <script>
-    // Step 1: Predefined registered users (like a database)
-    const registeredUsers = [
-      { username: "kalidasan", password: "kd"},
-      { username: "adarsh", password: "ad" },
-      { username: "nishant", password: "ns" },
-      { username: "aravind", password: "ar"},
-    ];
+      <p id="error"></p>
+    </form>
+  </div>
+</div>
 
-    // Step 2: Login form handling
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+<script>
+  const registeredUsers = [
+    { username: "kalidasan", password: "kd" },
+    { username: "adarsh", password: "ad" },
+    { username: "nishant", password: "ns" },
+    { username: "aravind", password: "ar" }
+  ];
 
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-      // Step 3: Check against registered users
-      const foundUser = registeredUsers.find(user => 
-        user.username === username && user.password === password
-      );
+    const usernameInput = document.getElementById("username").value.trim();
+    const passwordInput = document.getElementById("password").value;
 
-      if (foundUser) {
-        // Valid login
-        localStorage.setItem("user", JSON.stringify(foundUser));
-        localStorage.setItem("user1", JSON.stringify({ name: username }));
-        window.location.href = "index.html"; // Redirect to main page
-      } else {
-        // Invalid login
-        document.getElementById("error").textContent = "Invalid username or password.";
-      }
-    });
-  </script>
+    const user = registeredUsers.find(u => 
+      u.username === usernameInput && u.password === passwordInput
+    );
+
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user1", JSON.stringify({ name: user.username }));
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("error").textContent = "Invalid username or password.";
+    }
+  });
+</script>
+
 </body>
 </html>
