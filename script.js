@@ -2,8 +2,7 @@ const searchInput = document.getElementById('search-input');
 const audioPlayer = document.getElementById('audio-player');
 const audioSource = document.getElementById('audio-source');
 let songs = [];
-const clientId = 'e04e9b41acea45eca546d8852b27f9c9';
-const clientSecret = 'c7a16422ec934363b65fe4f607a2569b';
+
 let accessToken;
 
 async function getAccessToken() {
