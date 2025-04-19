@@ -243,6 +243,23 @@ body{
     border-radius: 6px;
     width: 40%;
 }
+.container main .playlist .genres .header .search1{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    width: 70%;
+    background-color: #1d1d1d;
+    border: 1px solid #464748;
+    padding: 10px;
+    border-radius: 8px;
+} 
+.container main .playlist .genres .header .search1 input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff; 
+}
 
 .container main .playlist .genres .header,
 .container main .playlist .music-list .header{
@@ -265,7 +282,7 @@ body{
 }
 
 .container main .playlist .genres .items .item{
-    padding: 22px 10px;
+    padding: 44px 10px;  /* orginal value is 22 10*/ 
     display: flex;
     align-items: center;
     justify-content: center;
