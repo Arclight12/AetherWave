@@ -97,7 +97,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const user = JSON.parse(localStorage.getItem("user")); 
   const user1=JSON.parse(localStorage.getItem('user1')) 
-        document.getElementById("usernameDisplay").textContent = `Welcome, ${user1.name}`;
+        document.getElementById("usernameDisplay").textContent = `Welcome, ${user1.name}!`;
   if (!user) {
     // Not logged in — redirect
     window.location.href = "login.html";
