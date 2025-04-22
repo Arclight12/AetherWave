@@ -148,7 +148,7 @@
 </div>
 
 <script>
-  const registeredUsers = [
+ /**const registeredUsers = [
     { username: "Kalidasan", password: "kd" },
     { username: "Adarsh", password: "ad" },
     { username: "Nishant", password: "ns" },
@@ -172,8 +172,62 @@
     } else {
       document.getElementById("error").textContent = "Invalid username or password.";
     }
+  }); **/
+  // Sample registered users with additional details
+  const registeredUsers = [
+    {
+      username: "Kalidasan",
+      password: "kd",
+      name: "OceanSoul",
+      email: "kalidas.ocean@example.com",
+      photo: "assets/img4.jpg", // ocean theme
+      followers: 124
+    },
+    {
+      username: "Adarsh",
+      password: "ad",
+      name: "SkyWalker",
+      email: "adarsh.sky@example.com",
+      photo: "assets/img1.jpg", // blue sky & clouds
+      followers: 98
+    },
+    {
+      username: "Nishant",
+      password: "ns",
+      name: "ShadowCraft",
+      email: "nishant.shadow@example.com",
+      photo: "assets/img3.jpg", // night forest
+      followers: 75
+    },
+    {
+      username: "Aravind",
+      password: "ar",
+      name: "StoneFlame",
+      email: "aravind.flame@example.com",
+      photo: "assets/img2.jpg", // mountain fire tones
+      followers: 101
+    }
+  ];
+
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const usernameInput = document.getElementById("username").value.trim();
+    const passwordInput = document.getElementById("password").value;
+
+    const user = registeredUsers.find(u =>
+      u.username === usernameInput && u.password === passwordInput
+    );
+
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("error").textContent = "Invalid username or password.";
+    }
   });
-</script>
+
+</script> 
 
 </body>
 </html>

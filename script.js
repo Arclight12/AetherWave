@@ -86,20 +86,37 @@ async function init() {
 
 init();
 
-  
-     /*
-window.addEventListener("DOMContentLoaded", () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user && user.name) {
-      document.getElementById("usernameDisplay").textContent = `Welcome, ${user}`;
-    }
-  }); */
+// Retrieve user data from localStorage
+const user = JSON.parse(localStorage.getItem("user"));
 
-  const user = JSON.parse(localStorage.getItem("user")); 
-  const user1=JSON.parse(localStorage.getItem('user1')) 
-        document.getElementById("usernameDisplay").textContent = `Welcome, ${user1.name}!`;
-        document.getElementById("name").textContent= `${user1.name}`;
-  if (!user) {
-    // Not logged in — redirect
+if (!user) {
+    // Redirect to login if user data is not found
     window.location.href = "login.html";
-  }
+} else {
+    // Display username in the sidebar
+    document.getElementById("usernameDisplay").textContent = `Welcome, ${user.username || "Guest"}!`;
+    document.getElementById("name").textContent = user.username || "Guest";
+}
+
+// Open profile popup when the "Profile" menu item is clicked
+document.getElementById("profileMenuItem").addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default link behavior
+
+    // Set profile info in the popup
+    document.getElementById("profileImage").src = user.photo || "assets/default-image.jpg"; // Fallback image
+    document.getElementById("profileName").textContent = user.name || "John Doe";
+    document.getElementById("profileUsername").textContent = user.username || "johndoe123";
+    document.getElementById("profileEmail").textContent = user.email || "johndoe@email.com";
+    document.getElementById("profileFollowers").textContent = user.followers || "0";
+
+    // Show the profile popup and overlay
+    document.getElementById("profilePopup").classList.add("show");
+    document.querySelector(".popup-overlay").style.display = "block";
+});
+
+// Close the profile popup when the close button is clicked
+document.getElementById("closePopup").addEventListener("click", () => {
+    // Hide the profile popup and overlay
+    document.getElementById("profilePopup").style.display = "none";
+    document.querySelector(".popup-overlay").style.display = "none";
+});

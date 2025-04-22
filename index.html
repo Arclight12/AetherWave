@@ -26,9 +26,9 @@
 
                 <h5>Menu</h5>
                 <ul>
-                    <li>
+                    <li id="profileMenuItem">
                         <i class='bx bxs-bolt-circle'></i>
-                        <a href="#">Explore</a>
+                        <a href="#">Profile</a>
                     </li>
                     <li>
                         <i class='bx bxs-volume-full'></i>
@@ -301,22 +301,24 @@
 
     </div>
 
-   
- <!--<audio id="audio-player" controls style="display:none;"></audio>
-<script>
-    const audioPlayer = document.getElementById('audio-player');
-    const playButtons = document.querySelectorAll('.play-button');
+    <!-- Overlay -->
+    <div class="popup-overlay"></div>
 
-    playButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const songUrl = button.getAttribute('data-song-url');
-            audioPlayer.src = songUrl;
-            audioPlayer.play();
-        });
-    });
-</script> -->   
+    <!-- Profile Pop-up -->
+    <div id="profilePopup" class="popup">
+        
+        <div class="popup-content">
+            <span id="closePopup" style="float: right; cursor: pointer;">&times;</span>
+            <img id="profileImage" src="" alt="Profile Pic">
+            <h3 id="profileName">John Doe</h3>
+            <p><strong>Username:</strong> <span id="profileUsername">johndoe123</span></p>
+            <p><strong>Email:</strong> <span id="profileEmail">johndoe@email.com</span></p>
+            <p><strong>Followers:</strong> <span id="profileFollowers">200</span></p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
+
 </body>
 
 </html>
