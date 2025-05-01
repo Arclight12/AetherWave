@@ -149,7 +149,21 @@
         </div>
     </div>
 
-    <!-- Overlay -->
-    <div class="popup-overlay"></div>
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+        const usernameDisplay = document.getElementById("usernameDisplay");
+        const nameLink = document.getElementById("name");
+
+        if (user) {
+            usernameDisplay.textContent = `Welcome, ${user.username}!`;
+            nameLink.textContent = user.username;
+        } else {
+            usernameDisplay.textContent = "Welcome, Guest!";
+        }
+
+        document.getElementById("menu-close").addEventListener("click", function() {
+            window.location.href = "index.html";
+        });
+    </script>
 </body>
 </html>
