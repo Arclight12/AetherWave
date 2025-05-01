@@ -17,7 +17,21 @@
     height: 100vh;
     width: 100vw;
   }
-
+  
+  .container .left {
+    background: linear-gradient(#050505, #18181d); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .right {
+    background: linear-gradient(#050505, #18181d); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .left {
     flex: 1; /* Two-thirds */
     display: flex;
@@ -276,4 +290,21 @@ img{
   border-radius: 8px;
 }
 
-  
+.back{
+
+  text-decoration: none;
+  align-items: center;
+  font-family: consolas;
+  font-size: 20px;
+  color: white;
+}
+.back i{
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+.back:hover, .back i:hover {
+  transform: scale(1.1);
+  color: #5773ff;
+  transition: all 0.3s ease-in-out;
+}
