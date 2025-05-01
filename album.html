@@ -10,7 +10,7 @@
 <body>
     <div class="container" style="display: grid; grid-template-columns: 1fr 3fr 1fr; height: 100vh;">
         <!-- Sidebar -->
-        <aside class="sidebar" style="background-color: #1e1e1e; padding: 20px;">
+        <aside class="sidebar" style="background-color: #1e1e1e; padding: 45px; ">
             <div class="logo">
                 <button class="menu-btn" id="menu-close">
                     <i class='bx bx-log-out-circle'></i>
@@ -22,28 +22,28 @@
             <div class="menu">
                 <h5>Menu</h5>
                 <ul>
-                    <li id="profileMenuItem">
+                    <li  id="profileMenuItem">
                         <i class='bx bxs-bolt-circle'></i>
                         <a href="#">Profile</a>
                     </li>
-                    <li>
+                    <li >
                         <i class='bx bxs-volume-full'></i>
                         <a href="#">Genres</a>
                     </li>
-                    <li>
+                    <li >
                         <i class='bx bxs-microphone'></i>
                         <a href="#">Artists</a>
                     </li>
                 </ul>
             </div>
-            <div class="menu">
+            <div class="menu" >
                 <h5>Library</h5>
                 <ul>
-                    <li>
+                    <li >
                         <i class='bx bx-undo'></i>
                         <a href="#">Recent</a>
                     </li>
-                    <li>
+                    <li >
                         <i class='bx bxs-photo-album'></i>
                         <a href="#">Albums</a>
                     </li>
@@ -85,6 +85,7 @@
         <!-- Middle Section -->
         <div class="middle-section" style="padding: 20px;">
             <iframe 
+                id="albumFrame"
                 style="border-radius: 12px; width: 100%; height: 100%; border: none;" 
                 src="https://open.spotify.com/embed/artist/1Xyo4u8uXC1ZmMpatF05PJ?utm_source=generator" 
                 frameBorder="0" 
@@ -163,6 +164,37 @@
 
         document.getElementById("menu-close").addEventListener("click", function() {
             window.location.href = "index.html";
+        });
+        const albums = {
+            
+        "Taylor Swift": "https://open.spotify.com/embed/artist/06HL4z0CvFAxyc27GXpf02?utm_source=generator",
+        "Ed Sheeran": "https://open.spotify.com/embed/artist/6eUKZXaKkcviH0Ku9w2n3V?utm_source=generator",
+        "Madison Beer": "https://open.spotify.com/embed/artist/2kRfqPViCqYdSGhYSM9R0Q?utm_source=generator",
+        "Zayn": "https://open.spotify.com/embed/artist/5ZsFI1h6hIdQRw2ti0hz81?utm_source=generator",
+        "Billie Eilish": "https://open.spotify.com/embed/artist/6qqNVTkY8uBg9cP3Jd7DAH?utm_source=generator",
+        "Lana Del Rey": "https://open.spotify.com/embed/artist/00FQb4jTyendYWaN8pK0wa?utm_source=generator"
+        // Add more artists and their album links here
+        // "Artist Name": "https://open.spotify.com/embed/artist/artist_id?utm_source=generator"
+    };
+
+    // Function to get URL parameters
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Get the artist from the URL
+    let artist = getQueryParam("artist");
+
+    if (artist && albums[artist]) {
+        document.getElementById("albumFrame").src = albums[artist]; // Set iframe source
+    } else {
+        document.getElementById("albumFrame").style.display = "none"; // Hide iframe if artist not found
+    }
+
+        // Add event listener to the back button
+        document.querySelector(".back").addEventListener("click", function() {
+            window.history.back();
         });
     </script>
 </body>

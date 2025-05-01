@@ -16,18 +16,6 @@
     0 0 20px rgba(255, 255, 255, 0.6),
     0 0 30px rgba(255, 0, 255, 0.4);
     transition: transform 0.3s ease-in-out; 
-    /** font-family: 'Great Vibes', cursive;
-  font-size: 30px;
-  color: white;
-  text-align: center;
-  
-  text-shadow: 
-    0 0 10px rgba(255, 255, 255, 0.8),
-    0 0 20px rgba(255, 255, 255, 0.6),
-    0 0 30px rgba(255, 0, 255, 0.4);
-  letter-spacing: 2px;
-  transition: transform 0.3s ease-in-out; **/
-    
 }
 #usernameDisplay:hover{
     transform: scale(1.05);
@@ -816,7 +804,7 @@ body{
   }
   
   /* --- Popup Box --- */
-  #profilePopup {
+  #profilePopup{
     display: none;
     position: fixed;
     top: 50%;
@@ -938,3 +926,109 @@ body{
     transition: all 0.3s ease-in-out;
   }
   
+  /* Overlay for the popup */
+.pop-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
+    z-index: 999; /* Ensure it appears above other elements */
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.pop-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Popup box styling */
+#popupBox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the popup */
+    background: linear-gradient(145deg, #1e1e1e, #25252d); /* Subtle gradient background */
+    color: #fff; /* White text */
+    width: 90%; /* Responsive width */
+    max-width: 450px; /* Maximum width */
+    padding: 25px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(74, 144, 226, 0.4); /* Subtle glow */
+    z-index: 1000; /* Ensure it appears above the overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#popupBox.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05); /* Slight zoom effect */
+}
+
+/* Popup content styling */
+.pop-content {
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.pop-content h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #4A90E2; /* Blue accent color */
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.8), 0 0 20px rgba(74, 144, 226, 0.6);
+}
+
+.pop-content input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #4A90E2; /* Blue border */
+    border-radius: 8px;
+    background: #2e2e2e; /* Darker background for input */
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.2); /* Subtle glow */
+}
+
+.pop-content input[type="text"]::placeholder {
+    color: #aaa; /* Placeholder text color */
+}
+
+.pop-content button {
+    background: linear-gradient(145deg, #4A90E2, #357ABD); /* Gradient blue button */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4); /* Subtle glow */
+}
+
+.pop-content button:hover {
+    background: linear-gradient(145deg, #357ABD, #4A90E2); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Close button styling */
+#closePopup {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#closePopup:hover {
+    transform: rotate(90deg) scale(1.2); /* Rotate and zoom effect */
+    color: #FF6B6B; /* Red on hover */
+}

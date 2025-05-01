@@ -120,3 +120,41 @@ document.getElementById("closePopup").addEventListener("click", () => {
     document.getElementById("profilePopup").style.display = "none";
     document.querySelector(".popup-overlay").style.display = "none";
 });
+// Function for artist search
+
+// Open the album popup when the album link is clicked
+document.getElementById("albumLink").addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default link behavior
+
+    // Show the popup and overlay
+    document.getElementById("popupBox").classList.add("show");
+    document.querySelector(".pop-overlay").classList.add("show");
+});
+
+// Close the popup when the close button is clicked
+document.getElementById("closePopup").addEventListener("click", () => {
+    document.getElementById("popupBox").classList.remove("show");
+    document.querySelector(".pop-overlay").classList.remove("show");
+});
+
+// Close the popup when clicking on the overlay
+document.querySelector(".pop-overlay").addEventListener("click", () => {
+    document.getElementById("popupBox").classList.remove("show");
+    document.querySelector(".pop-overlay").classList.remove("show");
+});
+
+
+function searchAlbum() {
+    // Get the value entered in the search input
+    const searchInput = document.getElementById("albumSearch").value.trim();
+
+    // Check if the input is empty
+    if (!searchInput) {
+        alert("Please enter an artist's name.");
+        return;
+    }
+
+    // Redirect to album.html with the artist's name as a query parameter
+    window.location.href = `album.html?artist=${encodeURIComponent(searchInput)}`;
+}
+

@@ -50,9 +50,10 @@
                         <i class='bx bx-undo'></i>
                         <a href="#">Recent</a>
                     </li>
-                    <li>
+                    <li class="profileMenu">
                         <i class='bx bxs-photo-album'></i>
-                        <a href="albumns.html">Albums</a>
+                        <a href="#" id="albumLink">Albums</a>
+                       
                     </li>
                     <li>
                         <i class='bx bxs-heart'></i>
@@ -314,6 +315,17 @@
             <p><strong>Username:</strong> <span id="profileUsername">johndoe123</span></p>
             <p><strong>Email:</strong> <span id="profileEmail">johndoe@email.com</span></p>
             <p><strong>Followers:</strong> <span id="profileFollowers">200</span></p>
+        </div>
+    </div>
+
+    <div class="pop-overlay">   </div>
+
+    <div id="popupBox" class="popup-box" >
+        <div class="pop-content">
+            <span id="closePopup" style="float: right; cursor: pointer;">&times;</span>
+            <h3>Search for an Album</h3>
+            <input type="text" id="albumSearch" placeholder="Search for an album...">
+            <button onclick="searchAlbum()">Search</button>
         </div>
     </div>
 
