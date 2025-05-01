@@ -377,6 +377,7 @@ body{
     height: 50px;
 }
 
+
 .container main .playlist .music-list .items .item .actions p{
     font-size: 13px;
     font-weight: bold;
@@ -899,5 +900,41 @@ body{
   #closePopup:hover {
     transform: rotate(90deg) scale(1.2);
     color: #FF6B6B;
+  }
+  
+.middle-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    gap: 10px;
+}
+.middle-section h1{
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*Return to home page*/
+.back{
+
+    text-decoration: none;
+    align-items: center;
+    font-family: consolas;
+    font-size: 20px;
+    color: white;
+  }
+  .back i{
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+  }
+  .back:hover, .back i:hover {
+    transform: scale(1.1);
+    color: #5773ff;
+    transition: all 0.3s ease-in-out;
   }
   

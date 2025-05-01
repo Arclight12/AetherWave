@@ -1,378 +1,155 @@
-<section style="margin-top: 50px; color: white;">
-    <h3 style=
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="style2.css"/>
+    <link rel="stylesheet" href="style.css"/>
     <title>Album | AetherWave</title>
-    
 </head>
 <body>
+    <div class="container" style="display: grid; grid-template-columns: 1fr 3fr 1fr; height: 100vh;">
+        <!-- Sidebar -->
+        <aside class="sidebar" style="background-color: #1e1e1e; padding: 20px;">
+            <div class="logo">
+                <button class="menu-btn" id="menu-close">
+                    <i class='bx bx-log-out-circle'></i>
+                </button>
+                <i class='bx bx-pulse'></i>
+                <a href="#">Aether Wave</a>
+            </div>
+            <h4 id="usernameDisplay">Welcome, Guest!</h4>
+            <div class="menu">
+                <h5>Menu</h5>
+                <ul>
+                    <li id="profileMenuItem">
+                        <i class='bx bxs-bolt-circle'></i>
+                        <a href="#">Profile</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-volume-full'></i>
+                        <a href="#">Genres</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-microphone'></i>
+                        <a href="#">Artists</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <h5>Library</h5>
+                <ul>
+                    <li>
+                        <i class='bx bx-undo'></i>
+                        <a href="#">Recent</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-photo-album'></i>
+                        <a href="#">Albums</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-heart'></i>
+                        <a href="#">Favourites</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <h5>Playlist</h5>
+                <ul>
+                    <li>
+                        <i class='bx bxs-plus-square'></i>
+                        <a href="#">Create New</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-caret-right-circle'></i>
+                        <a href="#">Best of 2025</a>
+                    </li>
+                    <li>
+                        <i class='bx bxs-caret-right-circle'></i>
+                        <a href="#" id="name">name</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="playing" style="margin-top: 60px;">
+                <div class="top">
+                    <img src="assets/current.png" alt="Current Device">
+                    <h4>Apple<br>Homepod</h4>
+                </div>
+                <div class="bottom">
+                    <i class='bx bx-podcast'></i>
+                    <p>Playing On Device</p>
+                </div>
+            </div>
+        </aside>
 
+        <!-- Middle Section -->
+        <div class="middle-section" style="padding: 20px;">
+            <iframe 
+                style="border-radius: 12px; width: 100%; height: 100%; border: none;" 
+                src="https://open.spotify.com/embed/artist/1Xyo4u8uXC1ZmMpatF05PJ?utm_source=generator" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </div>
 
-    <div class="left">
-        <main style="grid-column: span 1;">
-            <header>
+        <!-- Right Section -->
+        <div class="right-section" style="background-color: #1e1e1e; padding: 20px;">
+            <div class="profile">
                 <div class="nav-links">
-                    <a href="index.html"><i class='bx bx-arrow-back'></i> Back</a>
+                    <a href="index.html" class="back"><i class='bx bx-arrow-back'></i> BACK</a>
                 </div>
-            </header>
-
-            <section class="album-hero" style="margin-top: 40px; display: flex; gap: 30px; align-items: center; color: #fff;">
-                <img src="assets/album-cover.png" alt="Album Cover" style="width: 240px; height: 240px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);"/>
-                <div>
-                    <h2 style="font-size: 48px; margin-bottom: 10px;">Dawn FM</h2>
-                    <h4 style="color: #919191;">by The Weeknd</h4>
-                    <p style="margin-top: 12px; max-width: 500px;">Experience the hauntingly beautiful melodies and introspective lyrics of The Weeknd's latest album, "Dawn FM".</p>
-                    <div style="margin-top: 20px;">
-                        <button style="padding: 12px 20px; background: #5773ff; border: none; border-radius: 12px; font-weight: bold; color: white;">Play Album</button>
-                    </div>
-                </div>
-            </section>
-
-            <section style="margin-top: 50px; color: white;">
-                <h3 style="margin-bottom: 20px;">Tracks</h3>
-                <div class="music-list">
-                    <div class="items">
-                        <div class="item">
-                            <div class="info">
-                                <p>01</p>
-                                <img src="assets/song-1.png" alt="Track 1" />
-                                <div class="details">
-                                    <h5>Take My Breath</h5>
-                                    <p>The Weeknd</p>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <p>03:40</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="info">
-                                <p>02</p>
-                                <img src="assets/song-2.png" alt="Track 2" />
-                                <div class="details">
-                                    <h5>Gasoline</h5>
-                                    <p>The Weeknd</p>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <p>03:32</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="info">    
-                                <p>03</p>
-                                <img src="assets/song-3.png" alt="Track 3" />
-                                <div class="details">
-                                    <h5>Out of Time</h5>
-                                    <p>The Weeknd</p>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <p>03:34</p>
-                                <div class="icon"> 
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="info">
-                                <p>04</p>
-                                <img src="assets/song-4.png" alt="Track 4" />
-                                <div class="details">
-                                    <h5>Here We Go... Again</h5>
-                                    <p>The Weeknd</p>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <p>03:29</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="info">
-                                <p>05</p>
-                                <img src="assets/song-5.png" alt="Track 5" />
-                                <div class="details">
-                                    <h5>Less Than Zero</h5>
-                                    <p>The Weeknd</p>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <p>03:33</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="info">
-                                <p>06</p>
-                                <img src="assets/song-6.png" alt="Track 6" />
-                                <div class="details">
-                                    <h5>How Do I Make You Love Me?</h5>
-                                    <p>The Weeknd</p>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <p>03:34</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="info">
-                                <p>07</p>
-                                <img src="assets/song-7.png" alt="Track 7" />
-                                <div class="details">
-                                    <h5>Is There Someone Else?</h5>
-                                    <p>The Weeknd</p>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <p>03:19</p>
-                                <div class="icon">
-                                    <i class='bx bxs-right-arrow'></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="info">
-                                <p>08</p>
-                                <img src="assets/song-8.png" alt="Track 8" />
-                                <div class="details">
-
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="info">
-                        <p>09</p>
-                        <img src="assets/song-9.png" alt="Track 9" />
-                        <div class="details">
-                            <h5>Starry Eyes</h5>
-                            <p>The Weeknd</p>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <p>02:28</p>
-                        <div class="icon">
-                            <i class='bx bxs-right-arrow'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="info">
-                        <p>10</p>
-                        <img src="assets/song-10.png" alt="Track 10" />
-                        <div class="details">
-                            <h5>Every Angel is Terrifying</h5>
-                            <p>The Weeknd</p>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <p>02:52</p>
-                        <div class="icon">
-                            <i class='bx bxs-right-arrow'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="info">
-                        <p>11</p>
-                        <img src="assets/song-11.png" alt="Track 11" />
-                        <div class="details">
-                            <h5>Don't Break My Heart</h5>
-                            <p>The Weeknd</p>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <p>03:25</p>
-                        <div class="icon">
-                            <i class='bx bxs-right-arrow'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="info">
-                        <p>12</p>
-                        <img src="assets/song-12.png" alt="Track 12" />
-                        <div class="details">
-                            <h5>I Heard You're Married</h5>
-                            <p>The Weeknd</p>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <p>04:23</p>
-                        <div class="icon">
-                            <i class='bx bxs-right-arrow'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="info">
-                        <p>13</p>
-                        <img src="assets/song-13.png" alt="Track 13" />
-                        <div class="details">
-                            <h5>Less Than Zero</h5>
-                            <p>The Weeknd</p>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <p>03:32</p>
-                        <div class="icon">
-                            <i class='bx bxs-right-arrow'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="info">
-                        <p>14</p>
-                        <img src="assets/song-14.png" alt="Track 14" />
-                        <div class="details">
-                            <h5>Phantom Regret by Jim</h5>
-                            <p>The Weeknd</p>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <p>02:59</p>
-                        <div class="icon">
-                            <i class='bx bxs-right-arrow'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="info">
-                        <p>15</p>
-                        <img src="assets/song-15.png" alt="Track 15" />
-                        <div class="details">
-                            <h5>Blinding Lights</h5>
-                            <p>The Weeknd</p>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <p>03:20</p>
-                        <div class="icon">
-                            <i class='bx bxs-right-arrow'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="info">
-                        <p>16</p>
-                        <img src="assets/song-16.png" alt="Track 16" />
-                        <div class="details">
-                            <h5>Save Your Tears</h5>
-                            <p>The Weeknd</p>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <p>03:35</p>
-                        <div class="icon">
-                            <i class='bx bxs-right-arrow'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="info">
-                        <p>17</p>
-                        <img src="assets/song-17.png" alt="Track 17" />
-                        <div class="details">
-                            <h5>After Hours</h5>
-                            <p>The Weeknd</p>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <p>06:01</p>
-                        <div class="icon">
-                            <i class='bx bxs-right-arrow'></i>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <div class="right">
-
-        <div class="profile">
                 <i class='bx bxs-bell'></i>
                 <i class='bx bxs-cog'></i>
                 <div class="user">
-                        <div class="left">
-                                <img src="assets/profile.png">
-                        </div>
-                        <div class="right">
-                                <h5>Jhon Doe</h5>
-                        </div>
+                    <div class="left">
+                        <img src="assets/profile.png" alt="Profile Picture">
+                    </div>
+                    <div class="right">
+                        <h5>John Doe</h5>
+                    </div>
                 </div>
-        </div>
-
-        <div class="music-player">
+            </div>
+            <div class="music-player">
                 <div class="top-section">
-                        <div class="header">
-                                <h5>Player</h5>
-                                <i class='bx bxs-playlist'></i>
+                    <div class="header">
+                        <h5>Player</h5>
+                        <i class='bx bxs-playlist'></i>
+                    </div>
+                    <div class="song-info">
+                        <img src="assets/player.png" alt="Player">
+                        <div class="description">
+                            <h3>Take My Breath</h3>
+                            <h5>The Weeknd</h5>
+                            <p>Dawn FM</p>
                         </div>
-                        <div class="song-info">
-                                <img src="assets/player.png">
-                                <div class="description">
-                                        <h3>Take My Breath</h3>
-                                        <h5>The Weeknd</h5>
-                                        <p>Dawn FM</p>
-                                </div>
-                                <div class="progress">
-                                        <p>02:45</p>
-                                        <div class="active-line"></div>
-                                        <div class="deactive-line"></div>
-                                        <p>01:02</p>
-                                </div>
+                        <div class="progress">
+                            <p>02:45</p>
+                            <div class="active-line"></div>
+                            <div class="deactive-line"></div>
+                            <p>01:02</p>
                         </div>
+                    </div>
                 </div>
-
                 <div class="player-actions">
-                        <div class="buttons">
-                                <i class='bx bx-repeat'></i>
-                                <i class='bx bx-first-page'></i>
-                                <i class='bx bxs-right-arrow play-button'></i>
-                                <i class='bx bx-last-page'></i>
-                                <i class='bx bx-transfer-alt'></i>
-                        </div>
-                        <div class="lyrics">
-                                <i class='bx bx-chevron-up'></i>
-                                <h5>LYRICS</h5>
-                        </div>
+                    <div class="buttons">
+                        <i class='bx bx-repeat'></i>
+                        <i class='bx bx-first-page'></i>
+                        <i class='bx bxs-right-arrow play-button'></i>
+                        <i class='bx bx-last-page'></i>
+                        <i class='bx bx-transfer-alt'></i>
+                    </div>
+                    <div class="lyrics">
+                        <i class='bx bx-chevron-up'></i>
+                        <h5>LYRICS</h5>
+                    </div>
                 </div>
-
+            </div>
         </div>
+    </div>
 
-</div>
-
-</div>
+    <!-- Overlay -->
+    <div class="popup-overlay"></div>
 </body>
 </html>
