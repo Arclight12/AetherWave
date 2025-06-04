@@ -85,6 +85,13 @@ async function init() {
 }
 
 init();
+//Everything above this line is related to the Spotify API and song search functionality.
+
+
+
+
+//Everything below this line is related to the profile popup and album search functionality
+// Functionality for the profile popup and album search
 
 // Retrieve user data from localStorage
 const user = JSON.parse(localStorage.getItem("user"));
@@ -97,6 +104,7 @@ if (!user) {
     document.getElementById("usernameDisplay").textContent = `Welcome, ${user.username || "Guest"}!`;
     document.getElementById("name").textContent = user.username || "Guest";
 }
+
 
 // Open profile popup when the "Profile" menu item is clicked
 document.getElementById("profileMenuItem").addEventListener("click", (event) => {
